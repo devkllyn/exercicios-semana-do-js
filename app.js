@@ -5,7 +5,13 @@
     o novo array no console.
 */
 
-const randomNumbers = [10, 30, 15, 25, 50, 40, 5]
+const randomNumbers = [10, 30, 15, 25, 50, 40, 5];
+
+const isOddNumber = number => number % 2 != 0 ? number : false;
+
+const oddNumbers = randomNumbers.filter(isOddNumber);
+
+console.log(oddNumbers);
 
 /*
   02
@@ -13,7 +19,13 @@ const randomNumbers = [10, 30, 15, 25, 50, 40, 5]
   - Exiba no console quantos números abaixo de 501 o array abaixo possui.
 */
 
-const crazyNumbers = [937, 5, 395, 402, 501, 333, 502, 781, 3, 691]
+const crazyNumbers = [937, 5, 395, 402, 501, 333, 502, 781, 3, 691];
+
+const isLessThan501 = number => number < 501 ? number : false;
+
+const numbersSmallerThan501 = crazyNumbers.filter(isLessThan501);
+
+console.log(`Há ${numbersSmallerThan501.length} números menores que 501.`);
 
 /*
   03
@@ -22,7 +34,13 @@ const crazyNumbers = [937, 5, 395, 402, 501, 333, 502, 781, 3, 691]
     exiba o novo array no console.
 */
 
-const numbers = [5, 7, 3]
+const numbers = [5, 7, 3];
+
+const squared = number => Math.pow(number, 2);
+
+const squaredNumbers = numbers.map(squared);
+
+console.log(squaredNumbers)
 
 /*
   04
@@ -32,18 +50,53 @@ const numbers = [5, 7, 3]
   - Exiba o novo array no console.
 */
 
-const tarantinoMovies = [
-  { name: 'Bastardos inglórios', release: 2009 },
-  { name: 'Pulp Fiction', release: 1994 },
-  { name: 'Kill Bill: Volume 2', release: 2004 },
-  { name: 'Quatro Quartos', release: 1995 },
-  { name: 'Sin City', release: 2005 },
-  { name: 'Era uma Vez em... Hollywood', release: 2019 },
-  { name: 'Django Livre', release: 2012 },
-  { name: 'Cães de Aluguel', release: 1992 },
-  { name: 'À Prova de Morte', release: 2007 },
-  { name: 'Kill Bill: Volume 1', release: 2003 }
+const tarantinoMovies = [{
+        name: 'Bastardos inglórios',
+        release: 2009
+    },
+    {
+        name: 'Pulp Fiction',
+        release: 1994
+    },
+    {
+        name: 'Kill Bill: Volume 2',
+        release: 2004
+    },
+    {
+        name: 'Quatro Quartos',
+        release: 1995
+    },
+    {
+        name: 'Sin City',
+        release: 2005
+    },
+    {
+        name: 'Era uma Vez em... Hollywood',
+        release: 2019
+    },
+    {
+        name: 'Django Livre',
+        release: 2012
+    },
+    {
+        name: 'Cães de Aluguel',
+        release: 1992
+    },
+    {
+        name: 'À Prova de Morte',
+        release: 2007
+    },
+    {
+        name: 'Kill Bill: Volume 1',
+        release: 2003
+    }
 ]
+
+const wasReleasedBeforeTheYear2000 = movie => movie.release < 2000 ? movie : false;
+
+const filmsReleasedBeforeTheYear2000 = tarantinoMovies.filter(wasReleasedBeforeTheYear2000);
+
+console.log(filmsReleasedBeforeTheYear2000);
 
 /*
   05
@@ -52,15 +105,45 @@ const tarantinoMovies = [
   - Exiba o novo array no console.    
 */
 
-const tvShows = [
-  { name: 'Breaking Bad', releaseYear: 2008 },
-  { name: 'Mr. Robot', releaseYear: 2015 },
-  { name: 'True Detective', releaseYear: 2014 },
-  { name: 'Hannibal', releaseYear: 2013 },
-  { name: 'The Handmaid\'s Tale', releaseYear: 2017 },
-  { name: 'House M.D.', releaseYear: 2004 },
-  { name: 'Watchmen', releaseYear: 2019 }
+const tvShows = [{
+        name: 'Breaking Bad',
+        releaseYear: 2008
+    },
+    {
+        name: 'Mr. Robot',
+        releaseYear: 2015
+    },
+    {
+        name: 'True Detective',
+        releaseYear: 2014
+    },
+    {
+        name: 'Hannibal',
+        releaseYear: 2013
+    },
+    {
+        name: 'The Handmaid\'s Tale',
+        releaseYear: 2017
+    },
+    {
+        name: 'House M.D.',
+        releaseYear: 2004
+    },
+    {
+        name: 'Watchmen',
+        releaseYear: 2019
+    }
 ]
+
+const getTvShowsNames = ({
+    name
+}) => {
+    return name;
+}
+
+const tvShowsNames = tvShows.map(getTvShowsNames);
+
+console.log(tvShowsNames)
 
 /*
   06
@@ -73,13 +156,39 @@ const tvShows = [
   especial \n.
 */
 
-const cart = [
-  { name: 'Dark Souls III', price: 95.03 },
-  { name: 'Shadow of the Tomb Raider', price: 101.19 },
-  { name: 'Sekiro: Shadows Die Twice', price: 179.99 },
-  { name: 'Resident Evil 2', price: 119.90 },
-  { name: 'Death Stranding', price: 149.99 }
+const cart = [{
+        name: 'Dark Souls III',
+        price: 95.03
+    },
+    {
+        name: 'Shadow of the Tomb Raider',
+        price: 101.19
+    },
+    {
+        name: 'Sekiro: Shadows Die Twice',
+        price: 179.99
+    },
+    {
+        name: 'Resident Evil 2',
+        price: 119.90
+    },
+    {
+        name: 'Death Stranding',
+        price: 149.99
+    }
 ]
+
+const getGamesNames = ({
+    name
+}) => {
+    return name;
+}
+
+const listGames = cart.map(getGamesNames);
+
+const formatList = listGames.forEach(gameName => {
+    console.log(`- ${gameName}\n`);
+});
 
 /*
   - Nome 1
